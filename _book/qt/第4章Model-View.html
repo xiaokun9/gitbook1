@@ -1,0 +1,492 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第4章Model-View · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../windows/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook/">
+            
+                <a href="../gitbook/">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook/cmd.html">
+            
+                <a href="../gitbook/cmd.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    qt
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="第4章Model-View.html">
+            
+                <a href="第4章Model-View.html">
+            
+                    
+                    第4章Model-View
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../windows/">
+            
+                <a href="../windows/">
+            
+                    
+                    windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../git/">
+            
+                <a href="../git/">
+            
+                    
+                    git
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../git/use.html">
+            
+                <a href="../git/use.html">
+            
+                    
+                    用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第4章Model-View</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code>data&#xFF1A;&#x6570;&#x636E;&#x6E90;
+model&#xFF1A;&#x6A21;&#x578B;&#xFF0C;&#x4E0E;&#x6E90;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x5E76;&#x4E3A;&#x89C6;&#x56FE;&#x7EC4;&#x4EF6;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#xFF0C;example&#xFF1A;QStringListModel&#x3001;QSqlTableModel
+view&#xFF1A;&#x53EF;&#x89C6;&#x5316;&#x754C;&#x9762;&#xFF0C;example&#xFF1A;QlistView&#x3001;QTreeView&#x3001;QTableView
+Delegate:&#x4EE3;&#x7406;&#x7C7B;&#xFF0C;&#x4EE3;&#x7406;&#x8D1F;&#x8D23;&#x4ECE;&#x6570;&#x636E;&#x6A21;&#x578B;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x663E;&#x793A;&#x5728;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#xFF0C;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x540E;&#x53C8;&#x5C06;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;&#x6A21;&#x578B;&#x4E2D;
+</code></pre><h3 id="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6E90;&#x7801;">&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6E90;&#x7801;</h3>
+<p>main.py</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
+
+<span class="hljs-keyword">from</span> PyQt5 <span class="hljs-keyword">import</span> QtWidgets
+<span class="hljs-keyword">from</span> PyQt5.QtCore <span class="hljs-keyword">import</span> Qt, QDateTime, QTime, QDate, QTimer, QDir, QModelIndex
+<span class="hljs-keyword">from</span> PyQt5.QtWidgets <span class="hljs-keyword">import</span> QMainWindow, QFileSystemModel
+
+<span class="hljs-keyword">from</span> untitled2 <span class="hljs-keyword">import</span> Ui_MainWindow
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QMyWidget</span><span class="hljs-params">(QMainWindow)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,parent = None)</span>:</span>
+        super().__init__(parent)
+        self.__UI = Ui_MainWindow()
+        self.__UI.setupUi(self)
+
+        self.model = QFileSystemModel()
+        self.model.setRootPath(QDir.currentPath())
+
+        self.__UI.treeView.setModel(self.model)
+        self.__UI.listView.setModel(self.model)
+        self.__UI.tableView.setModel(self.model)
+        self.__UI.treeView.clicked.connect(self.__UI.listView.setRootIndex)
+        self.__UI.treeView.clicked.connect(self.__UI.tableView.setRootIndex)
+
+        self.__UI.treeView.clicked.connect(self.click_set)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">click_set</span><span class="hljs-params">(self,index)</span>:</span>
+        self.__UI.checkBox.setChecked(self.model.isDir(index))
+        self.__UI.label_4.setText(self.model.filePath(index))
+        self.__UI.label.setText(self.model.fileName(index))
+        self.__UI.label_3.setText(self.model.type(index))
+        filesize = self.model.size(index)/<span class="hljs-number">1024</span>
+        <span class="hljs-keyword">if</span> filesize &lt; <span class="hljs-number">1024</span> :
+            self.__UI.label_2.setText(<span class="hljs-string">&quot;%d KB&quot;</span>%filesize)
+        <span class="hljs-keyword">else</span> :
+            self.__UI.label_2.setText(<span class="hljs-string">&quot;%0.2f MB&quot;</span>%(filesize/<span class="hljs-number">1024.0</span>))
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QMyWidget()
+
+    MainWindow.show()
+    sys.exit(app.exec_())
+</code></pre>
+<p>untitled.ui</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ui</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;4.0&quot;</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">class</span>&gt;</span>MainWindow<span class="hljs-tag">&lt;/<span class="hljs-name">class</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QMainWindow&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;MainWindow&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;geometry&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">rect</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">x</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">x</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">y</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">y</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">width</span>&gt;</span>653<span class="hljs-tag">&lt;/<span class="hljs-name">width</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">height</span>&gt;</span>485<span class="hljs-tag">&lt;/<span class="hljs-name">height</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">rect</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;windowTitle&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>MainWindow<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;layoutDirection&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">enum</span>&gt;</span>Qt::LeftToRight<span class="hljs-tag">&lt;/<span class="hljs-name">enum</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QWidget&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;centralwidget&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QHBoxLayout&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;horizontalLayout_3&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QSplitter&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;splitter_3&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;orientation&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">enum</span>&gt;</span>Qt::Vertical<span class="hljs-tag">&lt;/<span class="hljs-name">enum</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QSplitter&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;splitter_2&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;orientation&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">enum</span>&gt;</span>Qt::Horizontal<span class="hljs-tag">&lt;/<span class="hljs-name">enum</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QTreeView&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;treeView&quot;</span>/&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QSplitter&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;splitter&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;orientation&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">enum</span>&gt;</span>Qt::Vertical<span class="hljs-tag">&lt;/<span class="hljs-name">enum</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QListView&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;listView&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QTableView&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;tableView&quot;</span>/&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QGroupBox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;groupBox&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>GroupBox<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QHBoxLayout&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;horizontalLayout&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QLabel&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;label&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>TextLabel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QLabel&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;label_2&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>TextLabel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QLabel&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;label_3&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>TextLabel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QCheckBox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;checkBox&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>CheckBox<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QGroupBox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;groupBox_3&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>GroupBox<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QHBoxLayout&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;horizontalLayout_2&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">widget</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;QLabel&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;label_4&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>TextLabel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">widget</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>/&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">connections</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ui</span>&gt;</span>
+</code></pre>
+<h5 id="flag&#xFF1A;">flag&#xFF1A;</h5>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x5217;&#x8868;&#x548C;&#x8868;&#x683C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#xFF0C;&#x9876;&#x5C42;&#x8282;&#x70B9;&#x603B;&#x662F;&#x7528;QModelIndex()&#x8868;&#x793A;</li>
+<li></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: qt">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../windows/" class="navigation navigation-next " aria-label="Next page: windows">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第4章Model-View","level":"1.3.1","depth":2,"next":{"title":"windows","level":"1.4","depth":1,"path":"windows/README.md","ref":"windows/README.md","articles":[]},"previous":{"title":"qt","level":"1.3","depth":1,"path":"qt/README.md","ref":"qt/README.md","articles":[{"title":"第4章Model-View","level":"1.3.1","depth":2,"path":"qt/第4章Model-View.md","ref":"qt/第4章Model-View.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"qt/第4章Model-View.md","mtime":"2020-08-10T17:39:06.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-10T17:41:34.277Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

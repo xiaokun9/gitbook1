@@ -2,6 +2,15 @@
 
 ### 安装git及配置
 
+```
+echo "# gitbook1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:xiaokun9/gitbook1.git
+git push -u origin master
+```
+
 1. 安装 [git](http://git-scm.com/download)
 
    ```
