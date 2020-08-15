@@ -162,7 +162,7 @@ untitled.ui
 
 ### QStringListModel
 main.py
-```
+```python
 import sys
 
 import PyQt5
@@ -223,7 +223,7 @@ if __name__ == '__main__':
 ```
 
 untitled.ui
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
